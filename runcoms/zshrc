@@ -12,3 +12,10 @@ fi
 
 # Customize to your needs...
 
+source ~/.aliases
+
+# virtualenvwrapper
+source /usr/bin/virtualenvwrapper.sh
+
+#vi mode
+bindkey -v

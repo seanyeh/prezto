@@ -33,6 +33,13 @@ fi
 # Paths
 #
 
+export GOPATH=/mnt/stuff/arch-home/stuff/devel/go
+
+# My custom bin folder first
+export PATH=~/stuff/bin:$PATH
+export PATH=$PATH:/mnt/stuff/arch-home/.gem/ruby/2.0.0/bin
+export PATH=$PATH:$GOPATH/bin
+
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
@@ -65,13 +72,16 @@ fi
 # Temporary Files
 #
 
-if [[ ! -d "$TMPDIR" ]]; then
-  export TMPDIR="/tmp/$USER"
-  mkdir -p -m 700 "$TMPDIR"
-fi
+# if [[ ! -d "$TMPDIR" ]]; then
+#   export TMPDIR="/tmp/$USER"
+#   mkdir -p -m 700 "$TMPDIR"
+# fi
+# 
+# TMPPREFIX="${TMPDIR%/}/zsh"
+# if [[ ! -d "$TMPPREFIX" ]]; then
+#   mkdir -p "$TMPPREFIX"
+# fi
 
-TMPPREFIX="${TMPDIR%/}/zsh"
-if [[ ! -d "$TMPPREFIX" ]]; then
-  mkdir -p "$TMPPREFIX"
-fi
+# somehow this fixes tmux not finding path, idk if this breaks anything xD
+source ~/.zshenv
 
